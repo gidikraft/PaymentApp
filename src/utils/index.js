@@ -4,7 +4,9 @@ const Colors = {
     white: "#FFFFFF",
     black: "#000000",
     gray: "#dedede",
-    flatListBackground: "#FDFDFD"
+    flatListBackground: "#FDFDFD",
+    billsBackground: "#f0f7f7",
+
 
 }
 

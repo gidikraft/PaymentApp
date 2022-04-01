@@ -35,7 +35,7 @@ const BillPaymentAirtime = (props) => {
             </View>
 
             <FlatList 
-                horizontal={true}
+                numColumns={4}
                 data = {billPaymentAirtimeIcons}
                 keyExtractor={(item, itemIndex) => itemIndex}
                 renderItem={renderImages} 
@@ -48,7 +48,7 @@ const BillPaymentAirtime = (props) => {
 const styles = StyleSheet.create({
     imageView: {
         marginVertical: 30,
-        marginRight: 40,
+        marginRight: 35,
 
     },
     airtime: {

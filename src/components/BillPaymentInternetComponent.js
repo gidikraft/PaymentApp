@@ -28,11 +28,11 @@ const BillPaymentInternet = () => {
         
         <View >
             <View >
-                <Text style={styles.airtime} >Internet Services</Text>
+                <Text style={styles.internet} >Internet Services</Text>
             </View>
 
             <FlatList 
-                horizontal={true}
+                numColumns={4}
                 data = {billPaymentInternetIcons}
                 keyExtractor={(item, itemIndex) => itemIndex}
                 renderItem={renderImages} 
@@ -43,13 +43,13 @@ const BillPaymentInternet = () => {
 };
 
 const styles = StyleSheet.create({
-    airtime: {
+    internet: {
         color: Colors.black,
-        marginTop: 30,
+        marginTop: 10,
     },
     imageView: {
         marginTop: 30,
-        marginRight: 45,
+        marginRight: 35,
 
     }
 })

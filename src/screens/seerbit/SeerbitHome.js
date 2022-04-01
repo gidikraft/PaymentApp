@@ -19,8 +19,8 @@ const SeerbitHome = ({ navigation }) => {
     const [showMore, setShowMore] = useState(false)
 
     const handleNavigation = () => {
-        console.log("clicked text")
-        navigation.navigate("BillPayment")
+        console.log("clicked Navigation")
+        navigation.navigate("Bill Payment")
     }
 
     const toggleShowMore = () => {
@@ -106,9 +106,13 @@ const SeerbitHome = ({ navigation }) => {
                     <DashboardIcon />
                     
                     <View style={styles.horizontalNavigationView}>
-                        <DashboardIcon />
+                        <TouchableOpacity onPress={handleNavigation} >
+                            <DashboardIcon />
+                        </TouchableOpacity>
 
-                        <DashboardIcon />
+                        <TouchableOpacity onPress={handleNavigation} >
+                            <DashboardIcon />
+                        </TouchableOpacity>
 
                     </View>
 

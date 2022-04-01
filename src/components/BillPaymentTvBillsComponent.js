@@ -2,20 +2,20 @@ import { Colors } from '../utils';
 import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-const BillPaymentElectricity = () => {
+const BillPaymentTvBills = () => {
 
-    const billPaymentElectricityIcons = [
+    const billPaymentTvBillsIcons = [
         {
-            image: require("../../assets/images/ikedc_icon.png")
+            image: require("../../assets/images/dstv.png")
         },
         {
-            image: require("../../assets/images/ekedc_icon.png")
+            image: require("../../assets/images/gotv.png")
         },
         {
-            image: require("../../assets/images/kedco_icon.png")
+            image: require("../../assets/images/dstv.png")
         },    
         {
-            image: require("../../assets/images/aedc_icon.png")
+            image: require("../../assets/images/dstv.png")
         },   
     ];
 
@@ -28,17 +28,18 @@ const BillPaymentElectricity = () => {
     );
 
     return (
-        <View>
+        <View >
+
             <View >
-                <Text style={styles.electricity} >Electricity</Text>
+                <Text style={styles.tvBills} >TV Bills</Text>
             </View>
 
             <FlatList 
                 numColumns={4}
-                data = {billPaymentElectricityIcons}
+                data = {billPaymentTvBillsIcons}
                 keyExtractor={(item, itemIndex) => itemIndex}
                 renderItem={renderImages} 
-            /> 
+            />
 
         </View>
 
@@ -49,13 +50,15 @@ const styles = StyleSheet.create({
     imageView: {
         marginVertical: 30,
         marginRight: 35,
-
+        alignItems: "center",
+        justifyContent: "center",
+        height: 60,
+        width: 60,
     },
-    electricity: {
+    tvBills: {
         color: Colors.black,
-        marginVertical: 10
-
+        marginVertical: 10,
     }
 });
 
-export default BillPaymentElectricity;
+export default BillPaymentTvBills;
