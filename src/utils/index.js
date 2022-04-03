@@ -6,7 +6,7 @@ const Colors = {
     gray: "#dedede",
     flatListBackground: "#FDFDFD",
     billsBackground: "#f0f7f7",
-
+    greenButton: "#ced991",
 
 }
 

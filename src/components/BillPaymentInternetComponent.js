@@ -5,15 +5,9 @@ import React from 'react';
 const BillPaymentInternet = () => {
 
     const billPaymentInternetIcons = [
-        {
-            image: require("../../assets/images/spectranet_icon.png")
-        },
-        {
-            image: require("../../assets/images/smile_icon.png")
-        },    
-        {
-            image: require("../../assets/images/mtn_icon.png")
-        },
+        { image: require("../../assets/images/spectranet_icon.png") },
+        { image: require("../../assets/images/smile_icon.png") },    
+        { image: require("../../assets/images/mtn_icon.png") },
     ]
 
     const renderImages = ({ item }) => (

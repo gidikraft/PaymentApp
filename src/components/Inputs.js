@@ -10,20 +10,43 @@ const SearchInput = (props) => (
             autoCorrect={false}
             autoCapitalize={props.autoCapitalize}
             onChangeText={text => props.onChangeText(text)}
-            style={[styles.input, props.style]}
+            style={[styles.searchInput, props.style]}
 
+        />
+    </View>
+);
+
+const CustomInput = (props) => (
+    <View >
+        <TextInput 
+            placeholder={props.placeholder}
+            value={props.value}
+            autoCorrect={false}
+            autoCapitalize={props.autoCapitalize}
+            onChangeText={text => props.onChangeText(text)}
+            style={[styles.customInput, props.style]}
+            keyboardType={props.keyboardType}
         />
     </View>
 )
 
 const styles = StyleSheet.create({
-    input: {
+    searchInput: {
         backgroundColor: Colors.gray,
         padding: 10,
         marginVertical: 10,
         borderRadius: 5,
-
-    }
+        color: Colors.black,
+    },
+    customInput: {
+        // backgroundColor: Colors.gray,
+        padding: 10,
+        paddingHorizontal: 20,
+        marginVertical: 10,
+        borderRadius: 5,
+        borderColor: Colors.gray,
+        borderWidth: 1,
+    },
 });
 
-export { SearchInput, }
+export { SearchInput, CustomInput }

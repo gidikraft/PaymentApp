@@ -49,7 +49,7 @@ const App = () => {
           name="Dialpad" 
           component={DialPadScreen} 
           options={{ 
-            title: "Enter Amount", 
+            title: " ", 
             headerTitleAlign: "center" 
           }}
           />

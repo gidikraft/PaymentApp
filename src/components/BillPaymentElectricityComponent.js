@@ -5,18 +5,10 @@ import React from 'react';
 const BillPaymentElectricity = () => {
 
     const billPaymentElectricityIcons = [
-        {
-            image: require("../../assets/images/ikedc_icon.png")
-        },
-        {
-            image: require("../../assets/images/ekedc_icon.png")
-        },
-        {
-            image: require("../../assets/images/kedco_icon.png")
-        },    
-        {
-            image: require("../../assets/images/aedc_icon.png")
-        },   
+        { image: require("../../assets/images/ikedc_icon.png") },
+        { image: require("../../assets/images/ekedc_icon.png") },
+        { image: require("../../assets/images/kedco_icon.png") },    
+        { image: require("../../assets/images/aedc_icon.png") },   
     ];
 
     const renderImages = ({ item }) => (

@@ -5,18 +5,10 @@ import React from 'react';
 const BillPaymentAirtime = (props) => {
 
     const billPaymentAirtimeIcons = [
-        {
-            image: require("../../assets/images/mtn_icon.png")
-        },
-        {
-            image: require("../../assets/images/airtel_icon.png")
-        },
-        {
-            image: require("../../assets/images/glo_icon.png")
-        },    
-        {
-            image: require("../../assets/images/9mobile_icon.png")
-        },   
+        { image: require("../../assets/images/mtn_icon.png") },
+        { image: require("../../assets/images/airtel_icon.png") },
+        { image: require("../../assets/images/glo_icon.png") },    
+        { image: require("../../assets/images/9mobile_icon.png") },   
     ];
 
     const renderImages = ({ item }) => (

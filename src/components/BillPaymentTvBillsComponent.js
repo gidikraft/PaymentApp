@@ -5,18 +5,10 @@ import React from 'react';
 const BillPaymentTvBills = () => {
 
     const billPaymentTvBillsIcons = [
-        {
-            image: require("../../assets/images/dstv.png")
-        },
-        {
-            image: require("../../assets/images/gotv.png")
-        },
-        {
-            image: require("../../assets/images/dstv.png")
-        },    
-        {
-            image: require("../../assets/images/dstv.png")
-        },   
+        { image: require("../../assets/images/dstv.png") },
+        { image: require("../../assets/images/gotv.png") },
+        { image: require("../../assets/images/dstv.png") },    
+        { image: require("../../assets/images/dstv.png") },   
     ];
 
     const renderImages = ({ item }) => (
