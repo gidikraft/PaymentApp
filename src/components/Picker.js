@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react';
-import { Colors } from '../utils';
+import { Colors, Constants } from '../utils';
 import {Picker} from '@react-native-picker/picker';
 
 const NetworkPicker = ({ networkPicker, setNetworkPicker }) => {
@@ -21,11 +21,11 @@ const NetworkPicker = ({ networkPicker, setNetworkPicker }) => {
     return (
         <View style={styles.pickerContainer}>
             <Picker
-                mode='dropdown'
+                mode={Constants.dropdown}
                 selectedValue={networkPicker}
                 onValueChange={(itemValue, itemIndex) => setNetworkPicker(itemValue)}
             >
-                <Picker.Item value='' label='Pick your network provider' enabled={false} color="#C5C5C5"/>
+                <Picker.Item value='' label={Constants.pickerLabel} enabled={false} color={Colors.black}/>
                 {renderNetworkProviders()}
             </Picker>
         </View> 
@@ -35,7 +35,7 @@ const NetworkPicker = ({ networkPicker, setNetworkPicker }) => {
 
 const styles= StyleSheet.create({
     pickerContainer: {
-        borderColor: "#C4C4C4",
+        borderColor: Colors.borderColor,
         borderWidth: 0.7,
         borderRadius: 6,
         marginVertical: 20,

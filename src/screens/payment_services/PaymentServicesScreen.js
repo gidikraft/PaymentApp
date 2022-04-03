@@ -1,88 +1,81 @@
-import { Image, TouchableOpacity, View, Text } from 'react-native'
+import { Image, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react';
 import styles from './PaymentServicesStyles';
 import { NormalText, SmallText } from '../../components/CustomText';
 import NetworkPicker from '../../components/Picker';
-import {Picker} from '@react-native-picker/picker';
-import { CustomInput, SearchInput } from '../../components/Inputs';
+import { CustomInput } from '../../components/Inputs';
 import ContactBookIcon from "../../../assets/images/contact_book_icon.png";
 import { GreenButton } from '../../components/Buttons';
-import RadioButtonRN from 'radio-buttons-react-native';
+import WalletButtonGroup from '../../components/WalletRadioButtons';
+import { Constants } from '../../utils';
 
 const PaymentServicesScreen = ({ navigation }) => {
     const [networkPicker, setNetworkPicker] = useState("");
     const [amount, setAmount] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
-    const [wallet, setWallet] = useState("");
 
-    const handleNavigation = () => {
-        console.log(`Clicked navigate to Dialpad`)
-        navigation.navigate("Dialpad")
-    };
-
-    const wallets = [
-        { label: 'data 1' },
-        { label: 'data 2' },
-    ];
+    const handleNavigation = () => navigation.navigate("Dialpad");
 
     return (
         <View style={styles.container}>
             
-            <SmallText caption={`Network Provider`} onPress={handleNavigation} />
+            <SmallText caption={Constants.networkProvider} onPress={handleNavigation} />
 
             <NetworkPicker networkPicker={networkPicker} setNetworkPicker={setNetworkPicker} />
 
-            <SmallText caption={`Category`} onPress={handleNavigation} />
+            <SmallText caption={Constants.category} />
 
             <View style={styles.modalView}>
                 <View style={styles.modalItem}>
-                    <NormalText caption={`Mobile Top-up`} />
+                    <NormalText caption={Constants.mobileTopUp} />
                 </View>
                 <View >
-                    <NormalText caption={`Data Bundle`} />
+                    <NormalText caption={Constants.dataBundle} />
                 </View>           
             </View>
 
-            <SmallText caption={`Amount`} onPress={handleNavigation} />
+            <SmallText caption={Constants.amount} />
 
             <CustomInput 
-                placeholder={`Enter Amount`}
+                placeholder={Constants.enterAmount}
                 onChangeText={(text) => setPhoneNumber(text)}
                 value={phoneNumber}
-                keyboardType={`numeric`}
+                keyboardType={Constants.numeric}
                 />
             
-            <SmallText caption={`Phone Number`} onPress={handleNavigation} />
+            <SmallText caption={Constants.phoneNumber} />
             
             <View style={styles.contactInputView}>
                 <CustomInput 
-                    placeholder={`Enter Amount`}
+                    placeholder={Constants.enterPhoneNumber}
                     onChangeText={(text) => setAmount(text)}
                     value={amount}
-                    keyboardType={`phone-pad`}
+                    keyboardType={Constants.phonePad}
                     style={styles.contactInput}
                 />
                 <View style={styles.contactIconView}>
                     <TouchableOpacity style={styles.contactTouch}>
                         <Image source={ContactBookIcon} />
-                        <SmallText caption={`Contacts`} style={styles.contactIconText}/>
+                        <SmallText caption={Constants.contacts} style={styles.contactIconText}/>
                     </TouchableOpacity>
                 </View>
             </View>
             
             <View style={styles.payWithView}>
                 <View style={styles.payWithBorder} />
-                    <SmallText caption={`Pay With`} />
+                    <SmallText caption={Constants.payWith} />
                 <View style={styles.payWithBorder} />
             </View>
-
-            <RadioButtonRN
-                data={wallets}
-                selectedBtn={(e) => setWallet(e)}
-                // box={false}
+            
+            <WalletButtonGroup 
+                buttons={[
+                `9PSB Wallet                        Balance: 434,533,000`,
+                `Bank                                               Balance: 23,000`, 
+                `Bank                                               Balance: 23,000`
+                ]}
             />
 
-            <GreenButton caption={`Purchase`} onPress={handleNavigation}/>
+            <GreenButton caption={Constants.purchase} onPress={handleNavigation}/>
 
         </View>
     );

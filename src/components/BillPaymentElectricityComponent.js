@@ -1,52 +1,34 @@
 import { Colors } from '../utils';
-import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-const BillPaymentElectricity = () => {
-
+const BillPaymentElectricity = (props) => {
     const billPaymentElectricityIcons = [
-        { image: require("../../assets/images/ikedc_icon.png") },
-        { image: require("../../assets/images/ekedc_icon.png") },
-        { image: require("../../assets/images/kedco_icon.png") },    
-        { image: require("../../assets/images/aedc_icon.png") },   
+        { image: require("../../assets/images/ikedc_icon.png"), name: "IKEDC" },
+        { image: require("../../assets/images/ekedc_icon.png"), name: "EKEDC" },
+        { image: require("../../assets/images/kedco_icon.png"), name: "KEDCO" },    
+        { image: require("../../assets/images/aedc_icon.png"), name: "AEDC" },   
     ];
-
-    const renderImages = ({ item }) => (
-        <View >
-            <View style={styles.imageView} >
-                <Image source={item.image} />
-            </View>
-        </View>
-    );
 
     return (
         <View>
             <View >
                 <Text style={styles.electricity} >Electricity</Text>
             </View>
-
             <FlatList 
                 numColumns={4}
                 data = {billPaymentElectricityIcons}
                 keyExtractor={(item, itemIndex) => itemIndex}
-                renderItem={renderImages} 
+                renderItem={props.renderItem} 
             /> 
-
         </View>
-
     );
 };
 
 const styles = StyleSheet.create({
-    imageView: {
-        marginVertical: 30,
-        marginRight: 35,
-
-    },
     electricity: {
         color: Colors.black,
-        marginVertical: 10
-
+        marginTop: 10,
     }
 });
 

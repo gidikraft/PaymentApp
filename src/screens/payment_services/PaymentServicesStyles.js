@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from "react-native";
-import { Colors } from "../../utils";
+import { Colors, Constants } from "../../utils";
 
 const { deviceHeight, deviceWidth } = Dimensions.get("window");
 
@@ -25,9 +25,9 @@ const styles = StyleSheet.create({
         borderWidth: 0.7,
         borderRadius: 6,
         marginVertical: 20,
-        flexDirection: 'row',
-        justifyContent: "space-around",
-        alignItems: "center"
+        flexDirection: Constants.row,
+        justifyContent: Constants.spaceAround,
+        alignItems: Constants.center,
     },
     modalItem: {
         backgroundColor: Colors.lightGreen,
@@ -35,8 +35,8 @@ const styles = StyleSheet.create({
     },
     contactInputView: {
         height: 75,
-        flexDirection: "row",
-        alignItems: "center",
+        flexDirection: Constants.row,
+        alignItems: Constants.center,
     },
     contactInput: {
         width: 240,
@@ -53,20 +53,20 @@ const styles = StyleSheet.create({
         borderWidth: 1,
     },
     contactTouch: {
-        flexDirection: "row",
+        flexDirection: Constants.row,
         marginTop: 15,
-        alignItems: "center",
-        justifyContent: "center",
+        alignItems: Constants.center,
+        justifyContent: Constants.center,
     },
     contactIconText: {
         marginLeft: 6,
-        color: "#9C9C9C",
+        color: Colors.contactColor
     },
     payWithView: {
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-        marginTop: 20
+        flexDirection: Constants.row,
+        alignItems: Constants.center,
+        justifyContent: Constants.spaceBetween,
+        marginVertical: 10
     },
     payWithBorder: {
         width: 140,

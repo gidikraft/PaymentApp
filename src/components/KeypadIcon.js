@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { Colors } from '../utils';
+import { Colors, Constants } from '../utils';
 
 const KeypadIcon = (props) => (
     <TouchableOpacity style={[styles.keypad, props.style]} >
@@ -14,14 +14,14 @@ const styles = StyleSheet.create({
         height: 80,
         borderRadius: 75,
         backgroundColor: Colors.gray,
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: Constants.center,
+        justifyContent: Constants.center,
         margin: 8,
     },
     passcodeText: {
         fontSize: 24,
-        fontWeight: "700",
-        fontStyle: "normal",
+        fontWeight: Constants.sevenHundred,
+        fontStyle: Constants.normal,
         color: Colors.black,
     }
 });

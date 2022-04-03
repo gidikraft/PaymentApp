@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from "react-native";
-import { Colors } from "../../utils";
+import { Colors, Constants } from "../../utils";
 
 const { deviceHeight, deviceWidth } = Dimensions.get("window");
 
@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         height: deviceHeight,
         width: deviceWidth,
         backgroundColor: Colors.white,
-        alignItems: "center",
+        alignItems: Constants.center,
     },
     iconView: {
         marginTop: 20,
@@ -19,25 +19,25 @@ const styles = StyleSheet.create({
     amount: {
         marginTop: 30,
         fontSize: 30,
-        fontWeight: "400",
-        fontStyle: "normal",
+        fontWeight: Constants.fourHundred,
+        fontStyle: Constants.normal,
         color: Colors.black,
     },
     pinInstructions: {
         marginTop: 20,
         marginBottom: 30,
         marginHorizontal: 110,
-        textAlign: "center",
+        textAlign: Constants.center,
 
     },
     passcodeView: {
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-        alignSelf: "center",
+        flexDirection: Constants.row,
+        justifyContent: Constants.center,
+        alignItems: Constants.center,
+        alignSelf: Constants.center,
     },
     passcodeIcon: {
-        backgroundColor: "#E3EFE2",
+        backgroundColor: Colors.keypadColor,
         marginHorizontal: 15,
         height: 16,
         width: 16,
@@ -46,16 +46,16 @@ const styles = StyleSheet.create({
     keypadContainer: {
         marginTop: 20,
         padding: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
+        alignItems: Constants.center,
+        justifyContent: Constants.center,
+        flexDirection: Constants.row,
+        flexWrap: Constants.wrap,
     },
     fingerprintView: {
         width: 80,
         height: 80,
-        justifyContent: "center",
-        alignItems: "center",
+        justifyContent: Constants.center,
+        alignItems: Constants.center,
         marginRight: 10,
     },
     hiddenKeypadIcon: {

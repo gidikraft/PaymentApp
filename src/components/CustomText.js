@@ -1,6 +1,6 @@
 import { StyleSheet, Text } from 'react-native'
 import React from 'react';
-import { Colors } from '../utils';
+import { Colors, Constants } from '../utils';
 
 const HeaderText = (props) => (
     <Text 
@@ -9,7 +9,7 @@ const HeaderText = (props) => (
     >
         {props.caption}
     </Text>
-)
+);
 
 const IconText = (props) => (
     <Text 
@@ -18,7 +18,7 @@ const IconText = (props) => (
     >
         {props.caption}
     </Text>
-)
+);
 
 const NormalText = (props) => (
     <Text 
@@ -27,7 +27,7 @@ const NormalText = (props) => (
     >
         {props.caption}
     </Text>
-)
+);
 
 const SmallText = (props) => (
     <Text 
@@ -36,36 +36,34 @@ const SmallText = (props) => (
     >
         {props.caption}
     </Text>
-)
+);
 
 const styles = StyleSheet.create({
     headerText: {
         color: Colors.black,
         fontSize: 16,
-        fontStyle: "normal",
-        fontWeight: "500"
-        // fontFamily: Fonts.Bold_Italic_Font,
+        fontStyle: Constants.normal,
+        fontWeight: Constants.sevenHundred,
     },
     iconText: {
-        color: Colors.darkGreen,
-        // marginTop: 10,
+        color: Colors.greenText,
         fontSize: 12,
-        fontStyle: "normal",
-        fontWeight: "normal",
-        textAlign: "center",
+        fontStyle: Constants.normal,
+        fontWeight: Constants.normal,
+        textAlign: Constants.center,
     },
     normalText: {
         color: Colors.black,
         fontSize: 14,
-        fontStyle: "normal",
-        fontWeight: "500",
+        fontStyle: Constants.normal,
+        fontWeight: Constants.fiveHundred,
     },
     smallText: {
         color: Colors.black,
         fontSize: 12,
-        fontStyle: "normal",
-        fontWeight: "400",
+        fontStyle: Constants.normal,
+        fontWeight: Constants.fourHundred,
     },
-})
+});
 
-export { HeaderText, IconText, NormalText, SmallText }
+export { HeaderText, IconText, NormalText, SmallText };

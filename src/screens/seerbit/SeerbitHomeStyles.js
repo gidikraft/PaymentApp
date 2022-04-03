@@ -1,78 +1,81 @@
 import { StyleSheet, Dimensions } from "react-native";
-import { Colors } from "../../utils";
+import { Colors, Constants } from "../../utils";
 
 const { deviceHeight, deviceWodth } = Dimensions.get("window")
 
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-    //   padding: 20,
       height: deviceHeight,
       width: deviceWodth,
-    //   backgroundColor: Colors.backGroundGreen,
     },
     topDashboard: {
         backgroundColor: Colors.lightGreen,
-
     },
     headerView: {
-        flexDirection: "row",
-        justifyContent: "space-between",
+        flexDirection: Constants.row,
+        justifyContent: Constants.spaceBetween,
         padding: 20
+    },
+    walletAmountView: {
+        flexDirection: Constants.row,
+        alignItems: Constants.center
     },
     amount: {
         fontSize: 20,
-        fontWeight: "700",
-        fontStyle: "normal"
-    },
-    wallet: {
-        fontWeight: "500",
-        fontSize: 14,
-
+        marginRight: 8,
     },
     navigationView: {
-        // height: 450,
         paddingHorizontal: 20,
     },
     navigationItem: {
-        alignSelf: "center",
-        // paddingVertical: 5,
-        
+        alignSelf: Constants.center,
     },
     iconView: {
         backgroundColor: Colors.darkGreen,
-        alignSelf: "center",
+        alignSelf: Constants.center,
         borderRadius: 40,
         padding: 10,
-        justifyContent: "center",
-        alignItems: "center"
+        justifyContent: Constants.center,
+        alignItems: Constants.center,
     },
     horizontalNavigationView: {
-        flexDirection: "row",
-        justifyContent: "space-between"
+        flexDirection: Constants.row,
+        justifyContent: Constants.spaceBetween,
+        marginHorizontal: 20,
     },
     accountNumberView: {
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.darkGreen,
         marginTop: 20,
         borderRadius: 20,
         padding: 10,
         marginHorizontal: 60,
-        marginBottom: 20,
-
+        marginBottom: 10,
+        flexDirection: Constants.row,
+        alignItems: Constants.center,
+        justifyContent: Constants.center,
+    },
+    accountText: {
+        color: Colors.redText,
+    },
+    accountNumber: {
+        color: Colors.greenText,
     },
     bottomDashboard: {
-        color: Colors.white,
         padding: 20,
         backgroundColor: Colors.white,
     },
+    heading: {
+        marginTop: 10
+    },
     transactionView: {
-        flexDirection: "row",
-        height: 60,
+        flexDirection: Constants.row,
+        height: 70,
         flex: 1,
-        // paddingVertical: 3,
+        paddingVertical: 3,
         backgroundColor: Colors.flatListBackground,
-        justifyContent: "center",
-        alignItems: "center"
+        justifyContent: Constants.center,
+        alignItems: Constants.center,
     },
     transactionLogo: {
         borderRadius: 40
@@ -83,37 +86,42 @@ const styles = StyleSheet.create({
     },
     transactionAmountView: {
         flex: .3,
-        alignItems: "flex-end"
+        alignItems: Constants.flexEnd,
+    },
+    showMoreContainer: {
+        flexDirection: Constants.row,
+        marginVertical: 10,
+        alignItems: Constants.center,
+        justifyContent: Constants.center,
     },
     seeMore: {
-        textAlign: "center",
-        color: Colors.darkGreen
+        marginRight: 7,
+        color: Colors.greenText
     },
     billPaymentHeading: {
-        flexDirection: "row",
-        alignItems: "center",
+        flexDirection: Constants.row,
+        alignItems: Constants.center,
         marginBottom: 20,
     },
-    airtime: {
-        // marginBottom: 20,
-    },
     billPaymentTabView: {
-        flexDirection: "row",
-        position: "absolute",
-        alignItems: "center",
-        justifyContent: "space-evenly",
+        flexDirection: Constants.row,
+        position: Constants.absolute,
+        alignItems: Constants.center,
+        justifyContent: Constants.spaceEvenly,
         width: 150,
         top: 10,
         marginHorizontal: 100,
-        // borderWidth: 1,
         borderRadius: 30,
-        // borderColor: Colors.darkGreen,
-        elevation: 5,
         padding: 5,
-        // alignSelf: 'center'
+        backgroundColor: Colors.white,
+        elevation: 5,
+        
     },
-    
-    
+    imageView: {
+        marginVertical: 30,
+        marginRight: 35,
+        alignItems: Constants.center,
+    },
 });
 
 export default styles;

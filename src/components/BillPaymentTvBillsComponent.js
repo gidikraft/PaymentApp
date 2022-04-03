@@ -1,27 +1,18 @@
-import { Colors } from '../utils';
-import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import { Colors, Constants } from '../utils';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-const BillPaymentTvBills = () => {
+const BillPaymentTvBills = (props) => {
 
     const billPaymentTvBillsIcons = [
-        { image: require("../../assets/images/dstv.png") },
-        { image: require("../../assets/images/gotv.png") },
-        { image: require("../../assets/images/dstv.png") },    
-        { image: require("../../assets/images/dstv.png") },   
+        { image: require("../../assets/images/dstv.png"), name: "DSTV" },
+        { image: require("../../assets/images/gotv.png"), name: "DSTV" },
+        { image: require("../../assets/images/dstv.png"), name: "DSTV" },    
+        { image: require("../../assets/images/dstv.png"), name: "DSTV" },   
     ];
-
-    const renderImages = ({ item }) => (
-        <View >
-            <View style={styles.imageView} >
-                <Image source={item.image} />
-            </View>
-        </View>
-    );
 
     return (
         <View >
-
             <View >
                 <Text style={styles.tvBills} >TV Bills</Text>
             </View>
@@ -30,11 +21,9 @@ const BillPaymentTvBills = () => {
                 numColumns={4}
                 data = {billPaymentTvBillsIcons}
                 keyExtractor={(item, itemIndex) => itemIndex}
-                renderItem={renderImages} 
+                renderItem={props.renderItem} 
             />
-
         </View>
-
     );
 };
 
@@ -42,8 +31,8 @@ const styles = StyleSheet.create({
     imageView: {
         marginVertical: 30,
         marginRight: 35,
-        alignItems: "center",
-        justifyContent: "center",
+        alignItems: Constants.center,
+        justifyContent: Constants.center,
         height: 60,
         width: 60,
     },

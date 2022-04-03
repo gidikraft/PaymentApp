@@ -1,25 +1,16 @@
 import { Colors } from '../utils';
-import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-const BillPaymentInternet = () => {
+const BillPaymentInternet = (props) => {
 
     const billPaymentInternetIcons = [
-        { image: require("../../assets/images/spectranet_icon.png") },
-        { image: require("../../assets/images/smile_icon.png") },    
-        { image: require("../../assets/images/mtn_icon.png") },
-    ]
-
-    const renderImages = ({ item }) => (
-        <View >
-            <View style={styles.imageView} >
-                <Image source={item.image} />
-            </View>
-        </View>
-    );
+        { image: require("../../assets/images/smile_icon.png"), name: "Smile" },    
+        { image: require("../../assets/images/spectranet_icon.png"), name: "Spectranet" },
+        { image: require("../../assets/images/mtn_icon.png"), name: "Mtn" },
+    ];
 
     return(
-        
         <View >
             <View >
                 <Text style={styles.internet} >Internet Services</Text>
@@ -29,9 +20,8 @@ const BillPaymentInternet = () => {
                 numColumns={4}
                 data = {billPaymentInternetIcons}
                 keyExtractor={(item, itemIndex) => itemIndex}
-                renderItem={renderImages} 
+                renderItem={props.renderItem} 
             /> 
-
         </View>
     );
 };
@@ -44,8 +34,7 @@ const styles = StyleSheet.create({
     imageView: {
         marginTop: 30,
         marginRight: 35,
-
     }
 })
 
-export default BillPaymentInternet
+export default BillPaymentInternet;

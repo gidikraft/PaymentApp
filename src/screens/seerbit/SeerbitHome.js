@@ -1,32 +1,26 @@
-import { View, Text, Button, TouchableOpacity, Image, ActivityIndicator } from 'react-native'
+import { View, TouchableOpacity, Image } from 'react-native'
 import React, { useState } from 'react';
 import styles from "./SeerbitHomeStyles"
 import { HeaderText, IconText, NormalText, SmallText } from '../../components/CustomText';
 import { SearchInput } from '../../components/Inputs';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import { ItemSeparator } from '../../components/ItemSeperator';
-import PayBillIcon from '../../../assets/images/local_badge.png';
 import SendMoneyIcon from "../../../assets/images/send_money_icon.png";
 import UserProfileIcon from "../../../assets/images/user_square.png";
 import BillPaymentAirtime from '../../components/BillPaymentAirtimeComponent';
 import BillPaymentElectricity from '../../components/BillPaymentElectricityComponent';
 import BillPaymentInternet from '../../components/BillPaymentInternetComponent';
 import DashboardIcon from '../../components/DashboardIconComponent';
-
+import WalletIcon from "../../../assets/images/wallet_icon.png";
+import { Constants } from '../../utils';
 
 const SeerbitHome = ({ navigation }) => {
     const [searchText, setSearchText] = useState("")
     const [showMore, setShowMore] = useState(false)
 
-    const handleNavigation = () => {
-        console.log("clicked Navigation")
-        navigation.navigate("Bill Payment")
-    }
+    const handleNavigation = () => navigation.navigate("Bill Payment");
 
-    const toggleShowMore = () => {
-        console.log("Show more")
-        setShowMore(!showMore)
-    }
+    const toggleShowMore = () => setShowMore(!showMore);
 
     const transactionData = [
         {
@@ -42,14 +36,7 @@ const SeerbitHome = ({ navigation }) => {
             image: require("../../../assets/images/gtbank_icon.png")
 
         },
-        {
-            senderName: "Musa Chukwuma Adeyemi",
-            receiverName: "Umar James",
-            amount: 3000,
-            image: require("../../../assets/images/gtbank_icon.png")
-
-        },
-    ]
+    ];
 
     const renderTransactions = ({ item }) => (
         <View style={styles.transactionView}>
@@ -62,11 +49,45 @@ const SeerbitHome = ({ navigation }) => {
                 <HeaderText caption={`N ${item.amount}`}/>
             </View>
         </View>
-    )
+    );
 
+    const renderAirtime = ({ item }) => (
+        <View >
+            <View style={styles.imageView} >
+                <Image source={item.image} />
+            </View>
+        </View>
+    );
+
+    const renderElectricity = ({ item }) => (
+        <View style={styles.imageView} >
+            <Image source={item.image} />
+        </View>
+    );
+
+    const renderInternet = ({ item }) => (
+      <View style={styles.imageView} >
+        <Image source={item.image} />
+      </View>
+    );
+  
     const BillPaymentComponent = () => (
         <View >
-            <NormalText caption={`Bill Payment`} style={styles.airtime}/>
+            <TouchableOpacity onPress={() => {toggleShowMore()}}>
+                {!showMore? (
+                    <View style={styles.showMoreContainer}>
+                        <NormalText  caption={Constants.showMore} style={styles.seeMore}/> 
+                        <Image source={WalletIcon} />
+                    </View>
+                ) : (
+                    <View style={styles.showMoreContainer} >
+                        <NormalText  caption={Constants.showMore} style={styles.seeMore}/>
+                        <Image source={WalletIcon} />
+                    </View>
+                )}
+                
+            </TouchableOpacity>
+            <NormalText caption={Constants.billPayment}/>
 
             <View style={styles.billPaymentHeading}>
                 <View style={styles.billPaymentTabView}>
@@ -76,84 +97,89 @@ const SeerbitHome = ({ navigation }) => {
 
             </View>
 
-            <BillPaymentAirtime />
+            <BillPaymentAirtime 
+                renderItem={renderAirtime}
+            />
             <ItemSeparator />
 
-            <BillPaymentElectricity />
+            <BillPaymentElectricity 
+            renderItem={renderElectricity}/>
             <ItemSeparator />
 
-            <BillPaymentInternet />
+            <BillPaymentInternet 
+                renderItem={renderInternet}
+            />
 
         </View>
-    )
+    );
+
+    // const MyIcon = <Icon name="rocket" size={30} color="#900" />;
 
     return (
         <ScrollView style={styles.container}>
             <View style={styles.topDashboard}>
                 <View style={styles.headerView}>
                     <View>
-                        <HeaderText caption={"Good Afternoon,"} />
-                        <HeaderText caption={"Tola"} />
+                        <HeaderText caption={Constants.goodAfternoon} />
+                        <HeaderText caption={Constants.tola} />
                     </View>
                     <View >
-                        <HeaderText caption={`N0.00`} style={styles.amount}/>
-                        <HeaderText caption={`Wallet balance`} style={styles.wallet}/>
+                        <View style={styles.walletAmountView}>
+                            <HeaderText caption={`N0.00`} style={styles.amount}/>
+                            <TouchableOpacity >
+                                <Image source={WalletIcon} />
+                            </TouchableOpacity>
+                        </View>
+                        <NormalText caption={Constants.walletBalance}/>
                         
                     </View>
                 </View>
 
                 <View style={styles.navigationView}>
-                    <DashboardIcon />
+                    <TouchableOpacity >
+                        <DashboardIcon caption={Constants.sendMoney}/>
+                    </TouchableOpacity>
                     
                     <View style={styles.horizontalNavigationView}>
-                        <TouchableOpacity onPress={handleNavigation} >
-                            <DashboardIcon />
+                        <TouchableOpacity >
+                            <DashboardIcon caption={Constants.linkAccount}/>
                         </TouchableOpacity>
 
                         <TouchableOpacity onPress={handleNavigation} >
-                            <DashboardIcon />
+                            <DashboardIcon caption={Constants.payBills}/>
                         </TouchableOpacity>
 
                     </View>
-
-                    <DashboardIcon />
+                    <TouchableOpacity >
+                        <DashboardIcon caption={Constants.requestMoney}/>
+                    </TouchableOpacity>
                     
                     <View style={styles.accountNumberView}>
-                        <IconText caption={`Account Number - 1007886777`} />
-
+                        <IconText caption={Constants.accountNumber} style={styles.accountText}/>
+                        <IconText caption={Constants.accountDigits} style={styles.accountNumber}/>
                     </View>
                 </View>
             </View>
 
             <View style={styles.bottomDashboard}>
                 <SearchInput 
-                    placeholder={"Search"}
+                    placeholder={Constants.search}
                     onTextChange={(text) => {setSearchText(text)}}
                     value={searchText}
-                    autoCapitalize={"none"}
+                    autoCapitalize={Constants.none}
                     />
 
-                <NormalText caption={`Recent Transactions`} style={styles.heading}/>
+                <NormalText caption={Constants.recentTransactions} style={styles.heading}/>
 
-                <SmallText caption={`Saturday, 11 February 2022`} style={styles.subHeading} />
+                <SmallText caption={Constants.date} style={styles.heading} />
 
                 <FlatList
                     data={transactionData}
                     keyExtractor={(item, itemIndex) => itemIndex}
                     renderItem={renderTransactions}
                     ItemSeparatorComponent={ItemSeparator}
-                    />
-
-                <TouchableOpacity onPress={() => {toggleShowMore()}}>
-                    {!showMore? (
-                        <NormalText  caption={`Show more`} style={styles.seeMore}/> 
-                    ) : (
-                        <NormalText  caption={`Show less`} style={styles.seeMore}/>
-                    )}
-                    
-                </TouchableOpacity>
-                
-                {showMore ? (<BillPaymentComponent />) : null }
+                    ListFooterComponent={BillPaymentComponent}
+                />
 
             </View>
             

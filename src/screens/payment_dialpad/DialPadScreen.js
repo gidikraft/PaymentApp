@@ -5,13 +5,12 @@ import MTNIcon from "../../../assets/images/mtn_icon.png";
 import FingerprintIcon from "../../../assets/images/fingerprint_icon.png"
 import { HeaderText, NormalText, SmallText } from '../../components/CustomText';
 import { KeypadIcon } from '../../components/KeypadIcon';
+import { Constants } from '../../utils';
 
 const DialPadScreen = ({ navigation }) => {
 
-    const handleNavigation = () => {
-        console.log(`Clicked navigate to Home`)
-        navigation.navigate("Home")
-    }
+    const handleNavigation = () => navigation.navigate("Home");
+
     return (
         <View style={styles.container}>
 
@@ -19,12 +18,12 @@ const DialPadScreen = ({ navigation }) => {
                 <Image source={MTNIcon} />
             </TouchableOpacity>
 
-            <SmallText caption={`MTN`} />
+            <SmallText caption={Constants.mtn} />
 
             <HeaderText caption={`1000.00`} style={styles.amount} />
 
             <NormalText 
-                caption={`Enter your transaction PIN to complete this payment`} 
+                caption={Constants.dialpadCaption} 
                 style={styles.pinInstructions}
             />
 
@@ -54,7 +53,6 @@ const DialPadScreen = ({ navigation }) => {
 
             </View>
 
-            {/* <Text>Dialpad Screen</Text> */}
         </View>
     )
 };
