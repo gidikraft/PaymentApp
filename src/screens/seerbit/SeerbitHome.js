@@ -85,7 +85,7 @@ const SeerbitHome = ({ navigation }) => {
                     </View>
                 ) : (
                     <View style={styles.showMoreContainer} >
-                        <NormalText  caption={Constants.showMore} style={styles.seeMore}/>
+                        <NormalText  caption={Constants.showLess} style={styles.seeMore}/>
                         <Image source={WalletIcon} />
                     </View>
                 )}
@@ -178,13 +178,13 @@ const SeerbitHome = ({ navigation }) => {
 
                 <NormalText caption={Constants.recentTransactions} style={styles.heading}/>
 
-                <SmallText caption={Constants.date} style={styles.heading} />
+                <SmallText caption={Constants.date} />
 
                 <FlatList
                     data={transactionData}
                     keyExtractor={(item, itemIndex) => itemIndex}
                     renderItem={renderTransactions}
-                    ItemSeparatorComponent={ItemSeparator}
+                    // ItemSeparatorComponent={ItemSeparator}
                     ListFooterComponent={BillPaymentComponent}
                 />
 

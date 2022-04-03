@@ -67,7 +67,8 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.white,
     },
     heading: {
-        marginTop: 10
+        marginTop: 20,
+        marginBottom: 10
     },
     transactionView: {
         flexDirection: Constants.row,
@@ -77,6 +78,8 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.flatListBackground,
         justifyContent: Constants.center,
         alignItems: Constants.center,
+        borderBottomWidth: 1,
+        borderBottomColor: Colors.gray,
     },
     transactionLogo: {
         borderRadius: 40

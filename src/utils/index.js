@@ -32,6 +32,7 @@ const Constants = {
     viewAll: "view all",
     right: "right",
     showMore: "Show more",
+    showLess: "Show less",
     billPayment: `Bill Payment`,
     goodAfternoon: "Good Afternoon,",
     tola: "Tola",
