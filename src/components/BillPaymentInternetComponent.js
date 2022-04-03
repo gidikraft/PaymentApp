@@ -11,7 +11,7 @@ const BillPaymentInternet = (props) => {
     ];
 
     return(
-        <View >
+        <View style={styles.container}>
             <View >
                 <Text style={styles.internet} >Internet Services</Text>
             </View>
@@ -27,14 +27,13 @@ const BillPaymentInternet = (props) => {
 };
 
 const styles = StyleSheet.create({
+    container: {
+      backgroundColor: Colors.white,
+    },
     internet: {
         color: Colors.black,
         marginTop: 10,
     },
-    imageView: {
-        marginTop: 30,
-        marginRight: 35,
-    }
 })
 
 export default BillPaymentInternet;

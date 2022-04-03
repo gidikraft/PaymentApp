@@ -12,7 +12,7 @@ const BillPaymentAirtime = (props) => {
     ];
 
     return (
-        <View >
+        <View style={styles.container}>
             <View >
                 <Text style={styles.airtime} >Airtime</Text>
             </View>
@@ -28,10 +28,8 @@ const BillPaymentAirtime = (props) => {
 };
 
 const styles = StyleSheet.create({
-    imageView: {
-        marginVertical: 30,
-        marginRight: 35,
-        alignItems: Constants.center
+    container: {
+    //   backgroundColor: Colors.white,
     },
     airtime: {
         color: Colors.black,

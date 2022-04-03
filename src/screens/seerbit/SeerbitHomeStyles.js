@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
     },
     accountNumber: {
         color: Colors.greenText,
+        marginRight: 5
     },
     bottomDashboard: {
         padding: 20,
@@ -72,7 +73,7 @@ const styles = StyleSheet.create({
         flexDirection: Constants.row,
         height: 70,
         flex: 1,
-        paddingVertical: 3,
+        paddingVertical: 5,
         backgroundColor: Colors.flatListBackground,
         justifyContent: Constants.center,
         alignItems: Constants.center,
@@ -118,10 +119,17 @@ const styles = StyleSheet.create({
         
     },
     imageView: {
+        backgroundColor: Colors.white,
         marginVertical: 30,
         marginRight: 35,
         alignItems: Constants.center,
     },
+    sendMoneyIcon: {
+        alignSelf: Constants.center,
+        justifyContent: Constants.center,
+        alignSelf: Constants.center,
+        alignItems: Constants.center,
+    }
 });
 
 export default styles;

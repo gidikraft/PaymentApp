@@ -12,7 +12,7 @@ const BillPaymentTvBills = (props) => {
     ];
 
     return (
-        <View >
+        <View style={styles.container}>
             <View >
                 <Text style={styles.tvBills} >TV Bills</Text>
             </View>
@@ -28,13 +28,8 @@ const BillPaymentTvBills = (props) => {
 };
 
 const styles = StyleSheet.create({
-    imageView: {
-        marginVertical: 30,
-        marginRight: 35,
-        alignItems: Constants.center,
-        justifyContent: Constants.center,
-        height: 60,
-        width: 60,
+    container: {
+      backgroundColor: Colors.white,
     },
     tvBills: {
         color: Colors.black,

@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontStyle: Constants.normal,
         fontWeight: Constants.sevenHundred,
+        fontFamily: "KaiseiTokumin_Regular"
     },
     iconText: {
         color: Colors.greenText,
@@ -51,18 +52,21 @@ const styles = StyleSheet.create({
         fontStyle: Constants.normal,
         fontWeight: Constants.normal,
         textAlign: Constants.center,
+        fontFamily: "KaiseiTokumin_Regular"
     },
     normalText: {
         color: Colors.black,
         fontSize: 14,
         fontStyle: Constants.normal,
         fontWeight: Constants.fiveHundred,
+        fontFamily: "KaiseiTokumin_Regular",
     },
     smallText: {
         color: Colors.black,
         fontSize: 12,
         fontStyle: Constants.normal,
         fontWeight: Constants.fourHundred,
+        fontFamily: "KaiseiTokumin_Regular"
     },
 });
 

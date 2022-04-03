@@ -9,9 +9,10 @@ const styles = StyleSheet.create({
       height: deviceHeight,
       width: deviceWidth,
       padding: 20,
-      backgroundColor: Colors.white,
+      backgroundColor: "#FAFAFE",
     },
     searchBar: {
+      backgroundColor: Colors.white,
       marginBottom: 10
     },
     headerText: {
@@ -22,9 +23,9 @@ const styles = StyleSheet.create({
       textAlign: Constants.right,
     },
     imageView: {
-        marginVertical: 25,
-        marginRight: 35,
-        alignItems: Constants.center,
+      marginVertical: 25,
+      marginRight: 35,
+      alignItems: Constants.center,
     },
 
 });

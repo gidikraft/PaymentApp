@@ -1,9 +1,9 @@
-import { Image, TouchableOpacity, View } from 'react-native'
+import { Image, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react';
 import styles from './PaymentServicesStyles';
 import { NormalText, SmallText } from '../../components/CustomText';
 import NetworkPicker from '../../components/Picker';
-import { CustomInput } from '../../components/Inputs';
+import { ContactInput, CustomInput } from '../../components/Inputs';
 import ContactBookIcon from "../../../assets/images/contact_book_icon.png";
 import { GreenButton } from '../../components/Buttons';
 import WalletButtonGroup from '../../components/WalletRadioButtons';
@@ -13,8 +13,11 @@ const PaymentServicesScreen = ({ navigation }) => {
     const [networkPicker, setNetworkPicker] = useState("");
     const [amount, setAmount] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
+    const [category, setCategory] = useState(false);
 
     const handleNavigation = () => navigation.navigate("Dialpad");
+
+    const toggleCategory = () => setCategory(!category)
 
     return (
         <View style={styles.container}>
@@ -25,13 +28,19 @@ const PaymentServicesScreen = ({ navigation }) => {
 
             <SmallText caption={Constants.category} />
 
-            <View style={styles.modalView}>
-                <View style={styles.modalItem}>
-                    <NormalText caption={Constants.mobileTopUp} />
-                </View>
-                <View >
-                    <NormalText caption={Constants.dataBundle} />
-                </View>           
+            <View style={styles.tabView}>
+                <TouchableOpacity onPress={toggleCategory}>
+                    <View style={[category? styles.tabItem : styles.tabItemInactive]}>
+                        <NormalText caption={Constants.mobileTopUp} style={[category? styles.tabText : null]}/>
+                    </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={toggleCategory}>
+                    <View style={[!category? styles.tabItem : styles.tabItemInactive]} >
+                        <NormalText caption={Constants.dataBundle} style={[!category? styles.tabText : null]} />
+                    </View> 
+                </TouchableOpacity>
+                         
             </View>
 
             <SmallText caption={Constants.amount} />
@@ -41,12 +50,12 @@ const PaymentServicesScreen = ({ navigation }) => {
                 onChangeText={(text) => setPhoneNumber(text)}
                 value={phoneNumber}
                 keyboardType={Constants.numeric}
-                />
+            />
             
             <SmallText caption={Constants.phoneNumber} />
             
             <View style={styles.contactInputView}>
-                <CustomInput 
+                <ContactInput
                     placeholder={Constants.enterPhoneNumber}
                     onChangeText={(text) => setAmount(text)}
                     value={amount}

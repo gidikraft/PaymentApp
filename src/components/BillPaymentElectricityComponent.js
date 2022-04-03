@@ -11,7 +11,7 @@ const BillPaymentElectricity = (props) => {
     ];
 
     return (
-        <View>
+        <View style={styles.container}>
             <View >
                 <Text style={styles.electricity} >Electricity</Text>
             </View>
@@ -26,6 +26,9 @@ const BillPaymentElectricity = (props) => {
 };
 
 const styles = StyleSheet.create({
+    container: {
+      backgroundColor: Colors.white,
+    },
     electricity: {
         color: Colors.black,
         marginTop: 10,

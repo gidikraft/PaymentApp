@@ -65,7 +65,7 @@ const Constants = {
     mtn: "MTN",
     dialpadCaption: `Enter your transaction PIN to complete this payment`,
     wrap: 'wrap',
-
+    logBox: 'A VirtualizedList contains a cell which itself contains more than one VirtualizedList '
 };
 
 export { Colors, Constants, }

@@ -52,10 +52,11 @@ const styles = StyleSheet.create({
         flexWrap: Constants.wrap,
     },
     fingerprintView: {
-        width: 80,
-        height: 80,
+        width: 90,
+        height: 90,
         justifyContent: Constants.center,
         alignItems: Constants.center,
+        alignSelf: Constants.center,
         marginRight: 10,
     },
     hiddenKeypadIcon: {

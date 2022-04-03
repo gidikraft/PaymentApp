@@ -1,17 +1,18 @@
-import { StyleSheet, TextInput, View } from 'react-native'
+import { Image, StyleSheet, TextInput, View } from 'react-native'
 import React from 'react';
-import { Colors } from '../utils';
+import { Colors, Constants } from '../utils';
+import SearchIcon from "../../assets/images/search_icon.png";
 
-const SearchInput = (props) => (
+const ContactInput = (props) => (
     <View >
         <TextInput 
             placeholder={props.placeholder}
             value={props.value}
             autoCorrect={false}
             autoCapitalize={props.autoCapitalize}
-            onChangeText={text => props.onChangeText(text)}
-            style={[styles.searchInput, props.style]}
-
+            onChangeText={props.onChangeText}
+            keyboardType={props.keyboardType}
+            style={[styles.contactInput, props.style]}
         />
     </View>
 );
@@ -24,18 +25,30 @@ const CustomInput = (props) => (
             value={props.value}
             autoCorrect={false}
             autoCapitalize={props.autoCapitalize}
-            onChangeText={text => props.onChangeText(text)}
+            onChangeText={props.onChangeText}
             style={[styles.customInput, props.style]}
             keyboardType={props.keyboardType}
         />
     </View>
 );
 
+const CustomSearchBar = (props) => (
+    <View style={styles.searchBarView}>
+        <Image source={SearchIcon} />
+        <TextInput
+            placeholder={props.placeholder}
+            value={props.value}
+            autoCorrect={false}
+            autoCapitalize={props.autoCapitalize}
+            onChangeText={props.onChangeText}
+            style={[styles.customSearchInput, props.style]}
+        />
+    </View>
+)
+
 const styles = StyleSheet.create({
-    searchInput: {
-        backgroundColor: Colors.gray,
+    contactInput: {
         padding: 10,
-        borderRadius: 5,
         color: Colors.black,
     },
     customInput: {
@@ -46,6 +59,16 @@ const styles = StyleSheet.create({
         borderColor: Colors.gray,
         borderWidth: 1,
     },
+    customSearchInput: {
+
+    },
+    searchBarView: {
+        flexDirection: Constants.row,
+        backgroundColor: Colors.gray,
+        borderRadius: 5,
+        alignItems: Constants.center,
+        paddingHorizontal: 10
+    },
 });
 
-export { SearchInput, CustomInput,  }
+export { ContactInput, CustomInput, CustomSearchBar }

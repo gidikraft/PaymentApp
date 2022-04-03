@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         marginVertical: 20,
 
     },
-    modalView: {
+    tabView: {
         height: 40,
         borderColor: Colors.gray,
         borderWidth: 0.7,
@@ -29,14 +29,26 @@ const styles = StyleSheet.create({
         justifyContent: Constants.spaceAround,
         alignItems: Constants.center,
     },
-    modalItem: {
+    tabItem: {
         backgroundColor: Colors.lightGreen,
         
     },
+    tabItemInactive: {
+        backgroundColor: Colors.white,
+        justifyContent: Constants.center,
+
+    },
+    tabText: {
+        color: Colors.greenText,
+        fontSize: 14
+    },
     contactInputView: {
-        height: 75,
+        borderRadius: 5,
         flexDirection: Constants.row,
         alignItems: Constants.center,
+        borderColor: Colors.gray,
+        borderWidth: 1,
+        marginVertical: 10
     },
     contactInput: {
         width: 240,
@@ -49,8 +61,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         borderTopRightRadius: 5,
         borderBottomRightRadius: 5,
-        borderColor: Colors.gray,
-        borderWidth: 1,
+        borderLeftColor: Colors.gray,
+        borderLeftWidth: 1,
     },
     contactTouch: {
         flexDirection: Constants.row,

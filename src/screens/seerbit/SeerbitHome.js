@@ -1,21 +1,25 @@
-import { View, TouchableOpacity, Image } from 'react-native'
-import React, { useState } from 'react';
+import { View, LogBox, TouchableOpacity, Image } from 'react-native'
+import React, { useEffect, useState } from 'react';
 import styles from "./SeerbitHomeStyles"
 import { HeaderText, IconText, NormalText, SmallText } from '../../components/CustomText';
-import { SearchInput } from '../../components/Inputs';
+import { CustomSearchBar } from '../../components/Inputs';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import { ItemSeparator } from '../../components/ItemSeperator';
-import SendMoneyIcon from "../../../assets/images/send_money_icon.png";
+import SendMoneyIconMini from "../../../assets/images/send_money_icon_mini.png";
 import UserProfileIcon from "../../../assets/images/user_square.png";
 import BillPaymentAirtime from '../../components/BillPaymentAirtimeComponent';
 import BillPaymentElectricity from '../../components/BillPaymentElectricityComponent';
 import BillPaymentInternet from '../../components/BillPaymentInternetComponent';
-import DashboardIcon from '../../components/DashboardIconComponent';
 import WalletIcon from "../../../assets/images/wallet_icon.png";
 import { Constants } from '../../utils';
+import SendMoneyIcon from "../../../assets/images/send_money_icon.png";
+import PayBillsIcon from "../../../assets/images/pay_bills_icon.png";
+import RequestMoneyIcon from "../../../assets/images/request_money_icon.png";
+import LinkAccountIcon from "../../../assets/images/link_account_icon.png";
+import ClipboardIcon from "../../../assets/images/clipboard_icon.png";
 
 const SeerbitHome = ({ navigation }) => {
-    const [searchText, setSearchText] = useState("")
+    const [searchText, setSearchText] = useState()
     const [showMore, setShowMore] = useState(false)
 
     const handleNavigation = () => navigation.navigate("Bill Payment");
@@ -46,7 +50,7 @@ const SeerbitHome = ({ navigation }) => {
                 <SmallText caption={item.receiverName} />
             </View>
             <View style={styles.transactionAmountView}  >
-                <HeaderText caption={`N ${item.amount}`}/>
+                <HeaderText caption={`₦ ${item.amount}`}/>
             </View>
         </View>
     );
@@ -91,7 +95,7 @@ const SeerbitHome = ({ navigation }) => {
 
             <View style={styles.billPaymentHeading}>
                 <View style={styles.billPaymentTabView}>
-                    <Image source={SendMoneyIcon} />
+                    <Image source={SendMoneyIconMini} />
                     <Image source={UserProfileIcon} />
                 </View>
 
@@ -113,8 +117,10 @@ const SeerbitHome = ({ navigation }) => {
         </View>
     );
 
-    // const MyIcon = <Icon name="rocket" size={30} color="#900" />;
-
+    useEffect(() => {
+        LogBox.ignoreLogs([Constants.logBox]);
+    }, []);
+   
     return (
         <ScrollView style={styles.container}>
             <View style={styles.topDashboard}>
@@ -125,7 +131,7 @@ const SeerbitHome = ({ navigation }) => {
                     </View>
                     <View >
                         <View style={styles.walletAmountView}>
-                            <HeaderText caption={`N0.00`} style={styles.amount}/>
+                            <HeaderText caption={`₦0.00`} style={styles.amount}/>
                             <TouchableOpacity >
                                 <Image source={WalletIcon} />
                             </TouchableOpacity>
@@ -136,38 +142,39 @@ const SeerbitHome = ({ navigation }) => {
                 </View>
 
                 <View style={styles.navigationView}>
-                    <TouchableOpacity >
-                        <DashboardIcon caption={Constants.sendMoney}/>
+                    <TouchableOpacity style={styles.sendMoneyIcon}>
+                        <Image source={SendMoneyIcon}/>
                     </TouchableOpacity>
                     
                     <View style={styles.horizontalNavigationView}>
-                        <TouchableOpacity >
-                            <DashboardIcon caption={Constants.linkAccount}/>
+                        <TouchableOpacity style={styles.sendMoneyIcon}>
+                            <Image source={LinkAccountIcon}/>
                         </TouchableOpacity>
 
-                        <TouchableOpacity onPress={handleNavigation} >
-                            <DashboardIcon caption={Constants.payBills}/>
+                        <TouchableOpacity style={styles.sendMoneyIcon} onPress={handleNavigation}>
+                            <Image source={PayBillsIcon}/>
                         </TouchableOpacity>
 
                     </View>
-                    <TouchableOpacity >
-                        <DashboardIcon caption={Constants.requestMoney}/>
+                    <TouchableOpacity style={styles.sendMoneyIcon}>
+                        <Image source={RequestMoneyIcon}/>
                     </TouchableOpacity>
                     
                     <View style={styles.accountNumberView}>
                         <IconText caption={Constants.accountNumber} style={styles.accountText}/>
                         <IconText caption={Constants.accountDigits} style={styles.accountNumber}/>
+                        <Image source={ClipboardIcon} />
                     </View>
                 </View>
             </View>
 
             <View style={styles.bottomDashboard}>
-                <SearchInput 
+                <CustomSearchBar
                     placeholder={Constants.search}
-                    onTextChange={(text) => {setSearchText(text)}}
+                    onTextChange={((text) => {setSearchText(text)})}
                     value={searchText}
                     autoCapitalize={Constants.none}
-                    />
+                />
 
                 <NormalText caption={Constants.recentTransactions} style={styles.heading}/>
 
