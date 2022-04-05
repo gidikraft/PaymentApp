@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
     keypadContainer: {
         marginTop: 20,
         padding: 10,
+        width: 350,
         alignItems: Constants.center,
         justifyContent: Constants.center,
         flexDirection: Constants.row,

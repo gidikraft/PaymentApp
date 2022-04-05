@@ -19,29 +19,38 @@ const styles = StyleSheet.create({
         marginVertical: 20,
 
     },
-    tabView: {
-        height: 40,
-        borderColor: Colors.gray,
-        borderWidth: 0.7,
-        borderRadius: 6,
-        marginVertical: 20,
+    sectionContainer: {
+        marginBottom: 20,
+    },
+    categoryStyles: {
         flexDirection: Constants.row,
-        justifyContent: Constants.spaceAround,
+        borderWidth: 1,
+        borderColor: Colors.gray,
+        borderRadius: 5,
+    },
+    sectionHeaderText: {
+        marginBottom: 10,
+    },
+    activeCategory: {
+        backgroundColor: Colors.lightGreen, 
+        paddingVertical: 10, 
+        width: '48%', 
+        margin: 3, 
         alignItems: Constants.center,
     },
-    tabItem: {
-        backgroundColor: Colors.lightGreen,
-        
+    activeText: {
+        color: Colors.darkGreen,
     },
-    tabItemInactive: {
-        backgroundColor: Colors.white,
-        justifyContent: Constants.center,
+    inactiveText: {
+        color: Colors.black,
+    },
+    inactiveCategory: {
+        paddingVertical: 10, 
+        width: '48%', 
+        margin: 3, 
+        alignItems: Constants.center,
+    },
 
-    },
-    tabText: {
-        color: Colors.greenText,
-        fontSize: 14
-    },
     contactInputView: {
         borderRadius: 5,
         flexDirection: Constants.row,
@@ -86,6 +95,8 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
     },
 
+
+    
 
 
 });

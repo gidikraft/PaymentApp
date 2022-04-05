@@ -13,11 +13,11 @@ const PaymentServicesScreen = ({ navigation }) => {
     const [networkPicker, setNetworkPicker] = useState("");
     const [amount, setAmount] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
-    const [category, setCategory] = useState(false);
+    const [categoryClicked, setCategoryClicked] = useState(false);
 
     const handleNavigation = () => navigation.navigate("Dialpad");
 
-    const toggleCategory = () => setCategory(!category)
+    const toggleCategory = () => setCategoryClicked(!categoryClicked)
 
     return (
         <View style={styles.container}>
@@ -26,21 +26,31 @@ const PaymentServicesScreen = ({ navigation }) => {
 
             <NetworkPicker networkPicker={networkPicker} setNetworkPicker={setNetworkPicker} />
 
-            <SmallText caption={Constants.category} />
+            <View style={styles.sectionContainer}>
+                <SmallText caption={Constants.category} style={styles.sectionHeaderText}/> 
+                <View style={styles.categoryStyles}>
+                    {
+                        categoryClicked ?
+                        <TouchableOpacity style={styles.activeCategory} >
+                            <Text style={styles.activeText}>{Constants.mobileTopUp}</Text>
+                        </TouchableOpacity>
+                        :
+                        <TouchableOpacity style={styles.inactiveCategory} onPress={toggleCategory}>
+                            <Text style={styles.inactiveText}>{Constants.mobileTopUp}</Text>
+                        </TouchableOpacity>
+                    }
 
-            <View style={styles.tabView}>
-                <TouchableOpacity onPress={toggleCategory}>
-                    <View style={[category? styles.tabItem : styles.tabItemInactive]}>
-                        <NormalText caption={Constants.mobileTopUp} style={[category? styles.tabText : null]}/>
-                    </View>
-                </TouchableOpacity>
-
-                <TouchableOpacity onPress={toggleCategory}>
-                    <View style={[!category? styles.tabItem : styles.tabItemInactive]} >
-                        <NormalText caption={Constants.dataBundle} style={[!category? styles.tabText : null]} />
-                    </View> 
-                </TouchableOpacity>
-                         
+                    {
+                        !categoryClicked ?
+                        <TouchableOpacity style={styles.activeCategory} >
+                            <Text style={styles.activeText}>{Constants.dataBundle}</Text>
+                        </TouchableOpacity>
+                        :
+                        <TouchableOpacity style={styles.inactiveCategory} onPress={toggleCategory}>
+                            <Text style={styles.inactiveText}>{Constants.dataBundle}</Text>
+                        </TouchableOpacity>
+                    }
+                </View>
             </View>
 
             <SmallText caption={Constants.amount} />
@@ -78,9 +88,9 @@ const PaymentServicesScreen = ({ navigation }) => {
             
             <WalletButtonGroup 
                 buttons={[
-                `9PSB Wallet                        Balance: 434,533,000`,
-                `Bank                                               Balance: 23,000`, 
-                `Bank                                               Balance: 23,000`
+                `9PSB Wallet                                                        Balance: 434,533,000`,
+                `Bank                                                                                  Balance: 23,000`, 
+                `Bank                                                                                   Balance: 23,000`
                 ]}
             />
 
