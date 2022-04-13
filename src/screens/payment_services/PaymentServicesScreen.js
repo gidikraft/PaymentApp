@@ -1,4 +1,4 @@
-import { Image, Text, TouchableOpacity, View } from 'react-native'
+import { Image, Text, TouchableOpacity, ToastAndroid, View } from 'react-native'
 import React, { useState } from 'react';
 import styles from './PaymentServicesStyles';
 import { NormalText, SmallText } from '../../components/CustomText';
@@ -14,8 +14,32 @@ const PaymentServicesScreen = ({ navigation }) => {
     const [amount, setAmount] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [categoryClicked, setCategoryClicked] = useState(false);
+    const [validates, setValidates] = useState(false);
 
-    const handleNavigation = () => navigation.navigate("Dialpad");
+    const handleNavigation = () => {
+        console.log(networkPicker)
+        if (amount !== ""){
+            setValidates(!validates)
+        } else {
+            ToastAndroid.show("You have not entered an amount", ToastAndroid.SHORT);
+            // ToastAndroid.showWithGravity(
+            //     "All Your Base Are Belong To Us",
+            //     ToastAndroid.SHORT,
+            //     ToastAndroid.TOP
+            // );
+        } 
+
+        if (networkPicker !== ""){
+            setValidates(!validates)
+        } else {
+            ToastAndroid.show("You have not selected a network provider", ToastAndroid.SHORT);
+        } 
+
+        if (validates) {
+            navigation.navigate("Dialpad", { amount, networkPicker });
+        }
+
+    };
 
     const toggleCategory = () => setCategoryClicked(!categoryClicked)
 
@@ -57,8 +81,8 @@ const PaymentServicesScreen = ({ navigation }) => {
 
             <CustomInput 
                 placeholder={Constants.enterAmount}
-                onChangeText={(text) => setPhoneNumber(text)}
-                value={phoneNumber}
+                onChangeText={(text) => setAmount(text)}
+                value={amount}
                 keyboardType={Constants.numeric}
             />
             
@@ -67,8 +91,8 @@ const PaymentServicesScreen = ({ navigation }) => {
             <View style={styles.contactInputView}>
                 <ContactInput
                     placeholder={Constants.enterPhoneNumber}
-                    onChangeText={(text) => setAmount(text)}
-                    value={amount}
+                    onChangeText={(text) => setPhoneNumber(text)}
+                    value={phoneNumber}
                     keyboardType={Constants.phonePad}
                     style={styles.contactInput}
                 />
@@ -88,13 +112,13 @@ const PaymentServicesScreen = ({ navigation }) => {
             
             <WalletButtonGroup 
                 buttons={[
-                `9PSB Wallet                                                        Balance: 434,533,000`,
-                `Bank                                                                                  Balance: 23,000`, 
-                `Bank                                                                                   Balance: 23,000`
+                `9PSB Wallet                                 Balance: 434,533,000`,
+                `Bank                                                         Balance: 23,000`, 
+                `Bank                                                         Balance: 23,000`
                 ]}
             />
 
-            <GreenButton caption={Constants.purchase} onPress={handleNavigation}/>
+            <GreenButton caption={Constants.purchase} onPress={() => handleNavigation(amount)}/>
 
         </View>
     );

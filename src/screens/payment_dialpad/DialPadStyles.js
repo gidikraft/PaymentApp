@@ -14,7 +14,8 @@ const styles = StyleSheet.create({
     iconView: {
         marginTop: 20,
         marginBottom: 7,
-
+        justifyContent: Constants.center,
+        alignItems: Constants.center,
     },
     amount: {
         marginTop: 30,

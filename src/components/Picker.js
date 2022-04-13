@@ -6,10 +6,10 @@ import {Picker} from '@react-native-picker/picker';
 const NetworkPicker = ({ networkPicker, setNetworkPicker }) => {
 
     const networkProviders = [
-        { network: "MTN", networkValue: "mtn" },
-        { network: "Airtel", networkValue: "airtel" },
-        { network: "Glo", networkValue: "glo" },
-        { network: "9mobile", networkValue: "9mobile" },
+        { network: "MTN", networkValue: "MTN" },
+        { network: "Airtel", networkValue: "Airtel" },
+        { network: "Glo", networkValue: "Glo" },
+        { network: "9Mobile", networkValue: "9Mobile" },
     ];
 
     const renderNetworkProviders = () => {
